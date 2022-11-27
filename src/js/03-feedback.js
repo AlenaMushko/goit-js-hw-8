@@ -21,10 +21,11 @@ localStorage.setItem(STORAGE_KEY, JSON.stringify(formData));
 function onPopulateForm(){
   const savedInputForm = JSON.parse(localStorage.getItem(STORAGE_KEY));
   // якщо вже є відгук, то його записуємо в localStorage
+  
   if(savedInputForm){
-   refs.formEl.email.value = savedInputForm.email;
-   refs.formEl.message.value = savedInputForm.message;
-  }
+    savedInputForm.email? refs.formEl.email.value = savedInputForm.email: refs.formEl.email.value= '';
+    savedInputForm.message? refs.formEl.message.value = savedInputForm.message: refs.formEl.message.value;
+  } 
 }
 
 function onFormSubmit(e){
